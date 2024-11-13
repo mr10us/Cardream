@@ -1,5 +1,5 @@
 window.addEventListener("load", function () {
-  const dropdowns = document.querySelectorAll(".dropdown");
+  const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
   dropdowns.forEach((dropdown) => {
     if (dropdown.dataset.position) {
       const position = dropdown.dataset.position;
