@@ -22,12 +22,41 @@
         <div class="logo">
           <img src="/assets/img/cardream_logo.svg" alt="logo img" width="96px" height="23px" />
         </div>
+        <div class="mobile-menu">
+          <div class="mobile-menu__content">
+            <nav>
+              <ul>
+                <li><a href="#" target="_blank">Главная</a></li>
+                <li><a href="#" target="_blank">Гарантии</a></li>
+                <li><a href="#" target="_blank">Услуги</a></li>
+                <li><a href="#" target="_blank">Контакты</a></li>
+              </ul>
+            </nav>
+            <div class="contacts">
+              <span>
+                <img src="/assets/img/kyivstar.svg" alt="kyivstar logo image" width="13px" height="13px" />
+                <a href="tel:+38(068)338-31-40" target="_blank">+38 (068) 338-31-40</a>
+                <img src="/assets/img/viber.svg" alt="viber logo image" width="15px" height="19px" />
+              </span>
+              <a href="#" target="_blank">
+                <img src="/assets/img/pin.svg" alt="map pin image" width="10px" height="14px" />
+                <p>Киев, ул. Ревуцкого 3</p>
+              </a>
+              <span>
+                <img src="/assets/img/vodafone.svg" alt="vodafone logo image" width="13px" height="13px" />
+                <a href="tel:+38(066)295-57-00" target="_blank">+38 (066) 295-57-00</a>
+                <img src="/assets/img/viber.svg" alt="viber logo image" width="15px" height="19px" />
+              </span>
+              <p>График работы: Пн-Сб 9:00-19:00</p>
+            </div>
+          </div>
+        </div>
         <nav>
           <ul>
-            <li><a href="#">Главная</a></li>
-            <li><a href="#">Гарантии</a></li>
-            <li><a href="#">Услуги</a></li>
-            <li><a href="#">Контакты</a></li>
+            <li><a href="#" target="_blank">Главная</a></li>
+            <li><a href="#" target="_blank">Гарантии</a></li>
+            <li><a href="#" target="_blank">Услуги</a></li>
+            <li><a href="#" target="_blank">Контакты</a></li>
           </ul>
         </nav>
         <div class="contacts">
@@ -47,10 +76,18 @@
           </span>
           <p>График работы: Пн-Сб 9:00-19:00</p>
         </div>
-        <span class="langs">
+        <span class="langs dropdown">
           <img src="/assets/img/UKR_flag.svg" alt="Ukrainian flag image" width="16px" height="5px" />
           <span>UA</span>
+          <div class="dropdown__content">
+            <a href="#" target="_blank">
+              <img src="/assets/img/UKR_flag.svg" alt="Ukrainian flag image" width="16px" height="5px" />
+              <div>RU</div>
+            </a>
+          </div>
         </span>
+        <button class="menu-btn">
+        </button>
       </div>
     </header>
 
@@ -272,15 +309,24 @@
           </span>
           <p>График работы: Пн-Сб 9:00-19:00</p>
         </div>
-        <span class="langs">
+        <span class="langs dropdown" data-position="top">
           <img src="/assets/img/UKR_flag.svg" alt="Ukrainian flag image" width="16px" height="5px" />
           <span>UA</span>
+          <div class="dropdown__content">
+            <a href="#" target="_blank">
+              <img src="/assets/img/UKR_flag.svg" alt="Ukrainian flag image" width="16px" height="5px" />
+              <div>RU</div>
+            </a>
+          </div>
         </span>
         <span>
           <p>Created by</p>
-          <img src="/assets/img/IDMA_logo.svg" alt="IDMA logo image" width="80" height="30">
+          <img src="/assets/img/IDMA_logo.svg" alt="IDMA logo image" width="80" height="30" />
         </span>
       </div>
     </footer>
+
+    <script type="text/javascript" src="/assets/js/dropdown.js"></script>
+    <script type="text/javascript" src="/assets/js/mobileNav.js"></script>
   </body>
 </html>
