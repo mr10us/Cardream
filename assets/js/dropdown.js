@@ -1,5 +1,6 @@
 window.addEventListener("load", function () {
-  const dropdowns = Array.from(document.querySelectorAll(".dropdown"));
+  const dropdowns = document.querySelectorAll(".dropdown");
+
   dropdowns.forEach((dropdown) => {
     if (dropdown.dataset.position) {
       const position = dropdown.dataset.position;
@@ -12,7 +13,9 @@ window.addEventListener("load", function () {
         content.style.bottom = "calc(100% + 8px)";
       }
     }
-  })(function () {
+  });
+
+  (function () {
     window.addEventListener("click", ({ target }) => {
       if (
         target.classList.contains("dropdown") ||
