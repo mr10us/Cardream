@@ -329,4 +329,19 @@ section > h2 {
   .menu-btn {
     display: block;
   }
+
+}
+@media screen and (max-width: 640px) {
+  .mobile-menu .mobile-menu__content .contacts {
+    grid-template-columns: 1fr;
+    gap: 10px;
+  }
+
+  .mobile-menu .mobile-menu__content .contacts > span:first-of-type {
+    grid-row: 1;
+  }
+  .mobile-menu .mobile-menu__content .contacts > span:last-of-type {
+    grid-row: 2;
+    margin-bottom: 20px;
+  }
 }
