@@ -316,7 +316,7 @@ section > h2 {
     grid-template-rows: 1fr;
     padding: 20px 40px;
   }
-  .mobile-menu.active .mobile-menu__content > nav ul li a {
+  .mobile-menu .mobile-menu__content > nav ul li a {
     padding: 10px;
     display: block;
     color: var(--menu-text-color);

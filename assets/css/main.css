@@ -143,28 +143,33 @@ header .container .langs {
 
 section.hero {
   background-color: var(--bg-secondary);
+  /* background-image: url("/assets/img/headlight-lamp-curved.png");
+  background-size: 50% 100%;
+  background-position: right center;
+  background-repeat: no-repeat; */
   overflow: hidden;
-  padding-top: calc(var(--section-padding) + var(--header-height));
+  padding-top: var(--header-height);
+  padding-bottom: 0;
+  display: grid;
+  grid-template-columns: 1fr;
 }
-
-section.hero .container {
-  position: relative;
-
-  isolation: isolate;
+section.hero > * {
+  grid-area: 1/1;
 }
 
 section.hero .hero__img {
-  position: absolute;
-  top: calc(-1 * var(--section-padding));
-  bottom: calc(-1 * var(--section-padding));
-  left: 0;
-
-  z-index: -1;
-
-  transform: translateX(60%);
-}
-section.hero .hero__img > img {
+  order: -1;
   height: 100%;
+  width: 50%;
+  margin-left: auto;
+}
+section.hero .hero__img picture {
+  height: 100%;
+}
+section.hero .hero__img picture img {
+  height: 100%;
+  object-fit: cover;
+  object-position: left center;
 }
 
 section.hero .hero__content {
@@ -172,7 +177,8 @@ section.hero .hero__content {
   flex-direction: column;
   gap: 40px;
   text-align: left;
-  width: 40%;
+  width: 50%;
+  padding-top: var(--section-padding);
 }
 section.hero .hero__content > h1 {
   font-size: var(--text-5xl);
@@ -186,50 +192,38 @@ section.hero .hero__content > p {
   line-height: 1.25;
   color: var(--text-black);
 }
-section.hero .container .hero__content > span {
+section.hero .hero__content > span {
   font-size: var(--text-sm);
   font-weight: 400;
   color: var(--bg-brown);
 }
 
+@media screen and (max-width: 1859px) {
+}
 @media screen and (max-width: 1280px) {
 }
 @media screen and (max-width: 1024px) {
-  section.hero {
-    background-image: linear-gradient(
-      120deg,
-      rgba(238, 238, 238, 1) 0%,
-      rgba(238, 238, 238, 1) 40%,
-      rgba(255, 255, 255, 1) 40%,
-      rgba(255, 255, 255, 1) 100%
-    );
-  }
-  section.hero .hero__img {
-    display: none;
-  }
-
-  section.hero .hero__content {
-    width: 100%;
-    padding: 40px;
-    border-radius: 10px;
-    backdrop-filter: blur(10px) brightness(1.1);
-    box-shadow: var(--shadow);
-  }
 }
 @media screen and (max-width: 768px) {
-  section.hero .hero__content > h1 {
-    font-size: var(--text-3xl);
+  section.hero {
+    background-color: var(--bg-primary);
+    grid-template-rows: 200px 1fr;
   }
-  section.hero .hero__content > p {
-    font-size: var(--text-md);
+  section.hero > * {
+    grid-area: unset;
+  }
+
+  section.hero .hero__img {
+    width: 100%;
+  }
+  section.hero .hero__content {
+    padding: 40px 0;
+    width: 100%;
   }
 }
 @media screen and (max-width: 640px) {
 }
 @media screen and (max-width: 480px) {
-  section.hero .hero__content {
-    padding: 20px;
-  }
 }
 
 /* ––––– ADVANTAGES ––––– */
@@ -319,6 +313,23 @@ section.banner::after {
   z-index: -1;
   background-color: var(--bg-secondary);
 }
+
+section.banner .banner__img {
+  position: relative;
+}
+section.banner .banner__img::after {
+  position: absolute;
+  z-index: -1;
+  content: none;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%) skewY(5deg);
+
+  display: block;
+  height: 70%;
+  width: 100vw;
+  background-color: var(--bg-secondary);
+}
 section.banner .container {
   display: grid;
   grid-template-columns: 1fr 2fr;
@@ -343,7 +354,17 @@ section.banner .banner__content > p {
 
 @media screen and (max-width: 1280px) {
   section.banner .container {
-    grid-template-columns: repeat(2, 1fr);
+    grid-template-columns: 1fr;
+  }
+  section.banner .banner__content {
+    grid-row: 2;
+  }
+
+  section.banner::after {
+    content: none;
+  }
+  section.banner .banner__img::after {
+    content: "";
   }
 }
 @media screen and (max-width: 1024px) {
@@ -351,23 +372,11 @@ section.banner .banner__content > p {
 @media screen and (max-width: 768px) {
 }
 @media screen and (max-width: 640px) {
-  section.banner::after {
-    top: 50%;
+  section.banner {
+    padding: 0;
   }
-
-  section.banner .container {
-    grid-template-columns: 1fr;
-  }
-  section.banner .container > * {
-    grid-area: 1/1;
-  }
-
   section.banner .banner__content {
     gap: 2rem;
-  }
-
-  section.banner .banner__img {
-    display: none;
   }
 }
 @media screen and (max-width: 480px) {
@@ -440,8 +449,8 @@ section.banner-second .banner-second__img::after {
   content: "";
   display: block;
   inset: 0;
-  width: 100%;
-  height: 100%;
+  width: 101%;
+  height: 101%;
   position: absolute;
   box-shadow: inset 10px 4px 50px 80px var(--text-white);
 }
@@ -460,35 +469,18 @@ section.banner-second .banner-second__content > h2 {
 @media screen and (max-width: 1280px) {
 }
 @media screen and (max-width: 1024px) {
-  section.banner-second .banner-second__img::after {
-    box-shadow: inset 10px 4px 50px 65px var(--text-white);
+  section.banner-second {
+    grid-template-columns: 1fr;
+    padding-top: 0;
+  }
+
+  section.banner-second .banner-second__content h2 {
+    font-size: var(--text-4xl);
   }
 }
 @media screen and (max-width: 768px) {
-  section.banner-second {
-    grid-template-columns: 1fr;
-    align-items: center;
-    justify-items: center;
-  }
-  section.banner-second > * {
-    grid-area: 1/1;
-  }
-
-  section.banner-second .banner-second__content {
-    align-items: center;
-    backdrop-filter: blur(4px) brightness(0.8);
-    padding: 20px;
-    z-index: 1;
-  }
-  section.banner-second .banner-second__content > h2 {
-    color: var(--text-white);
-    text-align: center;
-  }
 }
 @media screen and (max-width: 640px) {
-  section.banner-second .banner-second__img::after {
-    box-shadow: inset 10px 4px 15px 45px var(--text-white);
-  }
 }
 @media screen and (max-width: 480px) {
 }
@@ -600,9 +592,10 @@ section.pricing .primary-btn {
   margin: 60px auto 0;
 }
 
-
-@media screen and (max-width: 1280px) {}
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+}
 @media screen and (max-width: 768px) {
   section.pricing .container > span {
     width: 100%;
@@ -622,8 +615,10 @@ section.pricing .primary-btn {
     gap: 0.5rem;
   }
 }
-@media screen and (max-width: 640px) {}
-@media screen and (max-width: 480px) {}
+@media screen and (max-width: 640px) {
+}
+@media screen and (max-width: 480px) {
+}
 
 /* ––––– MAP ––––– */
 section.map {
@@ -639,7 +634,6 @@ section.map .map__addon {
   height: 100%;
 
   background-color: #ffffffcc;
-
 }
 
 section.map .map__addon .map__addon-content {
@@ -683,9 +677,10 @@ section.map iframe {
   width: 100%;
 }
 
-
-@media screen and (max-width: 1280px) {}
-@media screen and (max-width: 1024px) {}
+@media screen and (max-width: 1280px) {
+}
+@media screen and (max-width: 1024px) {
+}
 @media screen and (max-width: 768px) {
   section.map .map__addon {
     width: 100%;
@@ -696,7 +691,8 @@ section.map iframe {
     align-items: center;
   }
 }
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 640px) {
+}
 @media screen and (max-width: 480px) {
   section.map .map__addon .map__addon-content > div h3 {
     font-size: calc(var(--text-sm) * 1.2);
@@ -741,7 +737,6 @@ footer .container div > span {
   align-items: center;
 }
 
-
 @media screen and (max-width: 1280px) {
   footer .container {
     grid-template-columns: repeat(2, 1fr);
@@ -755,9 +750,12 @@ footer .container div > span {
     grid-row: 3/4;
   }
 }
-@media screen and (max-width: 1024px) {}
-@media screen and (max-width: 768px) {}
-@media screen and (max-width: 640px) {}
+@media screen and (max-width: 1024px) {
+}
+@media screen and (max-width: 768px) {
+}
+@media screen and (max-width: 640px) {
+}
 @media screen and (max-width: 480px) {
   footer .container {
     grid-template-columns: 1fr;

@@ -86,8 +86,7 @@
             </a>
           </div>
         </span>
-        <button class="menu-btn">
-        </button>
+        <button class="menu-btn"></button>
       </div>
     </header>
 
@@ -100,9 +99,13 @@
             <span>Получите бесплатную консультацию и запишитесь на установку</span>
             <a href="#" target="_blank" class="primary-btn">Связаться с нами</a>
           </div>
-          <div class="hero__img">
-            <img src="/assets/img/heading_lamp.png" alt="heading light image" width="990px" height="590px" />
-          </div>
+        </div>
+        <div class="hero__img">
+          <picture aria-label="heading light image">
+            <source srcset="/assets/img/headlight-lamp.png" media="(max-width: 768px)">
+            <source srcset="/assets/img/headlight-lamp-curved.png" media="(min-width: 769px)">
+            <img src="/assets/img/headlight-lamp-curved.png" alt="heading light image" width="990px" height="590px" />
+          </picture>
         </div>
       </section>
 
