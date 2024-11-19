@@ -401,6 +401,11 @@ section > h2 {
   min-width: 440px;
   max-width: 600px;
 }
+@media screen and (max-width: 640px) {
+  .popup .popup__content {
+    max-width: 100%;
+  }
+}
 .popup.contact .popup__content {
   place-items: center;
 }
@@ -454,6 +459,7 @@ section > h2 {
   border: none;
   border-bottom: 1px solid rgba(0, 0, 0, 0.8);
   padding: 15px;
+  border-radius: 0;
   font-size: var(--text-md);
   color: rgba(0, 0, 0, 0.5);
 }
