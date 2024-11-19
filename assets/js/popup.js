@@ -1,23 +1,30 @@
+const html = document.querySelector("html");
+const body = document.body;
+
 function openPopup(popupName) {
   document.querySelectorAll(".popup").forEach((popup) => {
     popup.classList.remove("active");
-    document.body.style.overflowY = "auto";
+    body.style.overflowY = "auto";
+    html.style.overflowY = "auto";
   });
 
   const popup = document.querySelector(`.popup.${popupName}`);
   const closeButton = popup.querySelector(".popup__close");
 
   popup.classList.add("active");
-  document.body.style.overflowY = "hidden";
+  html.style.overflowY = "hidden";
+  body.style.overflowY = "hidden";
 
   popup.addEventListener("click", ({ target }) => {
     if (target === popup) {
       popup.classList.remove("active");
-      document.body.style.overflowY = "auto";
+      body.style.overflowY = "auto";
+      html.style.overflowY = "auto";
     }
     if (target === closeButton || target.parentNode === closeButton) {
       popup.classList.remove("active");
-      document.body.style.overflowY = "auto";
+      body.style.overflowY = "auto";
+      html.style.overflowY = "auto";
     }
   });
 }
@@ -28,7 +35,8 @@ window.addEventListener("keydown", function ({ key }) {
 
     popups.forEach((popup) => {
       popup.querySelector(".popup__close").click();
-      document.body.style.overflowY = "auto"
+      body.style.overflowY = "auto";
+      html.style.overflowY = "auto";
     });
   }
 });
