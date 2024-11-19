@@ -143,10 +143,6 @@ header .container .langs {
 
 section.hero {
   background-color: var(--bg-secondary);
-  /* background-image: url("/assets/img/headlight-lamp-curved.png");
-  background-size: 50% 100%;
-  background-position: right center;
-  background-repeat: no-repeat; */
   overflow: hidden;
   padding-top: var(--header-height);
   padding-bottom: 0;
@@ -222,6 +218,9 @@ section.hero .hero__content > span {
   }
 }
 @media screen and (max-width: 640px) {
+  section.hero .hero__content > h1 {
+    font-size: calc(var(--text-5xl) - 5px);
+  }
 }
 @media screen and (max-width: 480px) {
 }
