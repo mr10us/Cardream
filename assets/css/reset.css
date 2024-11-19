@@ -403,7 +403,10 @@ section > h2 {
 }
 @media screen and (max-width: 640px) {
   .popup .popup__content {
-    max-width: 100%;
+    min-width: unset;
+    max-width: 90%;
+    margin: 0 auto;
+    padding-inline: 2rem;
   }
 }
 .popup.contact .popup__content {
