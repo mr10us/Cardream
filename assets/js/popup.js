@@ -11,7 +11,7 @@ function openPopup(popupName) {
     if (target === popup) {
       popup.classList.remove("active");
     }
-    if (target === closeButton) {
+    if (target === closeButton || target.parentNode === closeButton) {
       popup.classList.remove("active");
     }
   });
