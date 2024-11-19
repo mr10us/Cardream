@@ -64,7 +64,7 @@ header .container > nav ul > li a::before {
   transition: background 0.3s ease;
 }
 @media (hover: hover) {
-  header > nav ul > li a:hover::before {
+  header .container > nav ul > li a:hover::before {
     background-color: var(--color-primary);
   }
 }
@@ -179,6 +179,7 @@ section.hero .hero__content {
   text-align: left;
   width: 50%;
   padding-top: var(--section-padding);
+  padding-bottom: var(--section-padding);
 }
 section.hero .hero__content > h1 {
   font-size: var(--text-5xl);
@@ -198,8 +199,6 @@ section.hero .hero__content > span {
   color: var(--bg-brown);
 }
 
-@media screen and (max-width: 1859px) {
-}
 @media screen and (max-width: 1280px) {
 }
 @media screen and (max-width: 1024px) {
@@ -218,6 +217,7 @@ section.hero .hero__content > span {
   }
   section.hero .hero__content {
     padding: 40px 0;
+    padding-bottom: 0;
     width: 100%;
   }
 }
@@ -389,10 +389,60 @@ section.services ul {
   grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 10px;
 }
+section.services ul li {
+  cursor: pointer;
+  position: relative;
+}
+section.services ul li.active > span {
+  background-color: var(--color-primary);
+}
+section.services ul li.active > span::after {
+  transform: rotate(90deg);
+}
+section.services ul li > .popup-l {
+  position: absolute;
+  top: 100%;
+  left: 0;
+  z-index: 10;
+
+  display: grid;
+  gap: 1rem;
+  grid-template-rows: 0fr;
+  width: 100%;
+  
+  padding-inline: 1.6rem;
+  background-color: var(--color-primary);
+
+  transition: grid-template-rows 0.3s ease, padding 0.3s ease;
+}
+section.services ul li > .popup-l .popup-l__content {
+  overflow: hidden;
+  display: grid;
+  gap: 1rem;
+}
+section.services ul li.active > .popup-l {
+  grid-template-rows: 1fr;
+  padding-block: 1rem;
+}
+section.services ul li.active > span::after {
+  transform: rotate(-90deg) !important;
+}
+section.services ul li > .popup-l p {
+  font-size: var(--text-sm);
+  color: var(--text-white);
+  line-height: 1.4;
+}
+section.services ul li > .popup-l .primary-btn {
+  color: var(--color-primary);
+  background-color: var(--bg-primary);
+  display: block;
+  width: 100%;
+  text-align: center;
+}
 section.services ul li > img {
   width: 100%;
 }
-section.services ul li > a {
+section.services ul li > span {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -408,12 +458,16 @@ section.services ul li > a {
 
   transition: background 0.3s ease;
 }
-section.services ul li > a::after {
+section.services ul li > span::after {
   content: url("/assets/img/arrow.svg");
+  transition: transform 0.3s ease;
 }
 @media (hover: hover) {
-  section.services ul li > a:hover {
+  section.services ul li:hover > span {
     background-color: var(--color-primary);
+  }
+  section.services ul li:hover > span::after {
+    transform: rotate(90deg);
   }
 }
 
